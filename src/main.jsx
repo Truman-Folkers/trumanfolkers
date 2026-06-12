@@ -1,7 +1,7 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
 import { ArrowUpRight, Code2, Mail, Sparkles } from "lucide-react";
-import portrait from "./assets/se-portrait.png";
+import portrait from "./assets/ChatGPT Image Jun 7, 2026, 06_28_52 PM (1).PNG";
 import "./styles.css";
 
 const projects = [
@@ -11,6 +11,7 @@ const projects = [
     type: "Full-stack app",
     copy: "A student org platform with events, dashboards, and clean admin workflows.",
     gradient: "orange",
+    image: "https://trumanfolkers.com/assets/campuslink.png",
   },
   {
     title: "DeployDesk",
@@ -18,6 +19,7 @@ const projects = [
     type: "Developer tool",
     copy: "A polished release tracker that turns commits, checks, and notes into one calm deploy view.",
     gradient: "green",
+    image: "https://trumanfolkers.com/assets/campuslink.png",
   },
   {
     title: "SignalBoard",
@@ -25,6 +27,7 @@ const projects = [
     type: "Interface system",
     copy: "A responsive analytics UI with reusable cards, filters, and data states that feel finished.",
     gradient: "blue",
+    image: "https://trumanfolkers.com/assets/campuslink.png",
   },
 ];
 
@@ -125,7 +128,8 @@ function Projects() {
       <div className="project-stage">
         {projects.map((project, index) => (
           <article
-            className={`project-card ${project.gradient}`}
+            className={"project-card"}
+            style={{ background: `url(${project.image})` }}
             key={project.title}
           >
             <div className="project-top">
