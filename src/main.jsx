@@ -104,6 +104,13 @@ function Hero() {
           <a className="pill-button" href="#about">
             about me <ArrowUpRight size={20} />
           </a>
+          <a
+            className="pill-button"
+            href="/Truman Folkers Resume [Fall 2026].pdf"
+            download="Truman Folkers Resume [Fall 2026].pdf"
+          >
+            resume <ArrowUpRight size={20} />
+          </a>
         </div>
       </div>
 
@@ -129,7 +136,7 @@ function Projects() {
         {projects.map((project, index) => (
           <article
             className={"project-card"}
-            style={{ background: `url(${project.image})` }}
+            style={{ backgroundImage: `url(${project.image})` }}
             key={project.title}
           >
             <div className="project-top">

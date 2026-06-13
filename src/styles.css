@@ -242,14 +242,38 @@ h3 {
 }
 
 .project-card {
+  background-color: #fff;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
   border: 0;
   border-radius: 8px;
   color: var(--black);
+  isolation: isolate;
   min-height: 390px;
-  overflow: visible;
+  overflow: hidden;
   padding: 28px;
   position: relative;
   text-align: left;
+}
+
+.project-card::before {
+  background: linear-gradient(
+    180deg,
+    rgba(244, 245, 242, 0.84) 0%,
+    rgba(244, 245, 242, 0.46) 42%,
+    rgba(244, 245, 242, 0.9) 100%
+  );
+  content: "";
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+  z-index: -1;
+}
+
+.project-card > * {
+  position: relative;
+  z-index: 1;
 }
 
 .project-card:nth-child(1) {
