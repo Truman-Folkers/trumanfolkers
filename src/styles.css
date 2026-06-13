@@ -100,8 +100,11 @@ main {
 .hero {
   align-items: center;
   display: grid;
-  gap: clamp(40px, 7vw, 92px);
-  grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+  gap: clamp(32px, 4.5vw, 64px);
+  grid-template-columns: minmax(700px, 1300px) minmax(300px, 500px);
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 1520px;
   min-height: 68vh;
   padding: clamp(48px, 7vw, 92px) clamp(22px, 6vw, 88px) clamp(60px, 8vw, 104px);
 }
@@ -113,7 +116,7 @@ main {
 .kicker {
   color: var(--green);
   gap: 8px;
-  font-size: 0.82rem;
+  font-size: 1.5rem;
   font-weight: 950;
   letter-spacing: 0.08em;
   margin: 0 0 28px;
@@ -131,7 +134,7 @@ h1,
 h2,
 h3 {
   color: var(--ink);
-  font-weight: 950;
+  font-weight: 700;
   letter-spacing: -0.085em;
   line-height: 0.9;
 }
@@ -201,8 +204,11 @@ h3 {
 
 .portrait-wrap {
   border-radius: var(--radius);
+  justify-self: center;
+  max-width: 500px;
   overflow: hidden;
   transform: rotate(0.5deg);
+  width: 100%;
 }
 
 .portrait-wrap img {
@@ -413,7 +419,6 @@ h3 {
     justify-content: start;
   }
 
-  .hero,
   .about {
     grid-template-columns: 1fr;
   }
@@ -444,6 +449,13 @@ h3 {
     left: auto;
     top: 22px;
     transform: rotate(8deg);
+  }
+}
+
+@media (max-width: 780px) {
+  .hero {
+    grid-template-columns: 1fr;
+    justify-items: start;
   }
 }
 
@@ -498,7 +510,7 @@ h3 {
   }
 
   .portrait-wrap {
-    border-radius: 30px;
+    border-radius: 70px;
   }
 
   .projects h2 {

@@ -94,8 +94,7 @@ function Hero() {
       <div className="hero-copy">
         <p className="kicker">Software engineer</p>
         <h1 id="hero-title">
-          It&apos;s more than code, it&apos;s a{" "}
-          <span className="circled">solution.</span>
+          Truman <span className="circled">Folkers.</span>
         </h1>
         <div className="hero-actions">
           <a className="pill-button" href="#portfolio">
