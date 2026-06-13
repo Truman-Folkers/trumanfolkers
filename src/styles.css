@@ -188,7 +188,7 @@ h3 {
   gap: 10px;
   justify-content: center;
   min-height: 60px;
-  min-width: min(230px, 100%);
+  min-width: min(120px, 100%);
   padding: 16px 34px;
   transition:
     background 220ms ease,
