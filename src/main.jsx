@@ -65,7 +65,7 @@ function Header() {
         <a href="#about">About</a>
       </nav>
       <a className="wordmark" href="#home" aria-label="Truman Folkers home">
-        Truman Folkers<span></span>
+        <i>Truman</i>Folkers<span></span>
       </a>
       <div className="social-row" aria-label="Social links">
         <a
