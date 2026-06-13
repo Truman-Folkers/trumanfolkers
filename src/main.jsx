@@ -2,6 +2,7 @@ import React from "react";
 import { createRoot } from "react-dom/client";
 import { ArrowUpRight, Code2, Mail, Sparkles } from "lucide-react";
 import portrait from "./assets/ChatGPT Image Jun 7, 2026, 06_28_52 PM (1).PNG";
+import cyai from "./assets/cyai.png";
 import "./styles.css";
 
 const projects = [
@@ -11,7 +12,7 @@ const projects = [
     type: "Full-stack app",
     copy: "A student org platform with events, dashboards, and clean admin workflows.",
     gradient: "orange",
-    image: "https://trumanfolkers.com/assets/campuslink.png",
+    image: cyai,
   },
   {
     title: "DeployDesk",
