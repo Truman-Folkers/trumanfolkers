@@ -7,12 +7,13 @@ import "./styles.css";
 
 const projects = [
   {
-    title: "CampusLink",
+    title: "CyAI",
     tag: "#recentbuild",
     type: "Full-stack app",
-    copy: "A student org platform with events, dashboards, and clean admin workflows.",
+    copy: "An Chrome extension AI agent for ISU student Canvas",
     gradient: "orange",
     image: cyai,
+    link: "https://chromewebstore.google.com/detail/cyai/ohikkdmdedaijlbkelldeengpckdmakd?hl=en&authuser=0",
   },
   {
     title: "DeployDesk",
@@ -134,18 +135,20 @@ function Projects() {
       <h2 id="projects-title">Recent Projects</h2>
       <div className="project-stage">
         {projects.map((project, index) => (
-          <article
-            className={"project-card"}
-            style={{ backgroundImage: `url(${project.image})` }}
-            key={project.title}
-          >
-            <div className="project-top">
-              <span>{project.type}</span>
-              <Code2 size={24} />
-            </div>
-            <h3>{project.title}</h3>
-            <p>{project.copy}</p>
-          </article>
+          <a href={project.link} target="_blank" rel="noreferrer" key={index}>
+            <article
+              className={"project-card"}
+              style={{ backgroundImage: `url(${project.image})` }}
+              key={project.title}
+            >
+              <div className="project-top">
+                <span>{project.type}</span>
+                <Code2 size={24} />
+              </div>
+              <h3>{project.title}</h3>
+              <p>{project.copy}</p>
+            </article>
+          </a>
         ))}
       </div>
     </section>
