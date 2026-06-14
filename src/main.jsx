@@ -35,12 +35,12 @@ const projects = [
 const skills = [
   "React",
   "TypeScript",
-  "Node",
+  "Node.js",
   "Python",
   "APIs",
-  "Databases",
-  "UI Design",
-  "Testing",
+  "mySQL",
+  "AWS",
+  "Java",
 ];
 
 function App() {
@@ -157,16 +157,16 @@ function About() {
     <section className="about" id="about" aria-labelledby="about-title">
       <div>
         <p className="section-label">the message behind the build</p>
-        <h2 id="about-title">
-          Clean systems. Human screens. Work that actually ships.
-        </h2>
+        <h2 id="about-title">Coding for the Glory of Christ </h2>
       </div>
       <div className="about-copy">
         <p>
-          Truman Folkers is a software engineer focused on building web
-          experiences that feel useful, expressive, and easy to trust. The work
-          blends product thinking, front-end craft, and full-stack
-          follow-through.
+          Hi! I’m Truman Folkers, a software engineer from Des Moines, Iowa,
+          currently in my third year of college. I specialize in full-stack
+          development, building polished, responsive frontends backed by clean
+          backend systems and data pipelines. I’m passionate about solving
+          real-world problems through clean, scalable software, and I’m always
+          eager to learn more!
         </p>
         <div className="skill-cloud" aria-label="Technical skills">
           {skills.map((skill) => (
@@ -181,12 +181,12 @@ function About() {
 function Contact() {
   return (
     <section className="contact" aria-labelledby="contact-title">
-      <p className="section-label">open to internships, roles, freelance</p>
-      <h2 id="contact-title">
-        Have a build that needs taste and technical range?
-      </h2>
-      <a className="pill-button dark" href="mailto:hello@trulee.dev">
-        let&apos;s talk <Mail size={20} />
+      <p className="section-label">
+        open to internships, co-ops and consulting
+      </p>
+      <h2 id="contact-title">Let's connect!</h2>
+      <a className="pill-button dark" href="mailto:truman.folkers91@gmail.com">
+        <Mail size={20} />
       </a>
     </section>
   );

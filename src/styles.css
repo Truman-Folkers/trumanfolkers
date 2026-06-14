@@ -422,6 +422,12 @@ h3 {
   background: var(--black);
   color: var(--paper);
   margin: 16px auto 0;
+  /* Make the contact pill narrower */
+  display: inline-flex;
+  width: auto;
+  min-width: 0;
+  max-width: 320px;
+  padding: 10px 20px;
 }
 
 .contact .dark:hover {
