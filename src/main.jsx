@@ -37,6 +37,41 @@ const projects = [
   },
 ];
 
+const allProjects = [
+  {
+    name: "CyAI",
+    category: "Chrome extension",
+    stack: "React, Node.js, AI tooling",
+    year: "2026",
+    status: "Live",
+    link: "https://chromewebstore.google.com/detail/cyai/ohikkdmdedaijlbkelldeengpckdmakd?hl=en&authuser=0",
+  },
+  {
+    name: "Own Aesthetics",
+    category: "Full-stack website",
+    stack: "React, APIs, responsive UI",
+    year: "2025",
+    status: "Live",
+    link: "https://ownaesthetics.com",
+  },
+  {
+    name: "TrueYou",
+    category: "Mobile app",
+    stack: "React Native, product design",
+    year: "2026",
+    status: "Demo",
+    link: "https://youtu.be/3RQQMXqWMxI",
+  },
+  {
+    name: "Portfolio Website",
+    category: "Personal site",
+    stack: "React, Vite, CSS",
+    year: "2026",
+    status: "Active",
+    link: "/",
+  },
+];
+
 const skills = [
   "React",
   "TypeScript",
@@ -49,9 +84,20 @@ const skills = [
 ];
 
 function App() {
+  const isProjectsPage = window.location.pathname === "/projects";
+
+  if (isProjectsPage) {
+    return (
+      <main>
+        <Header currentPage="projects" />
+        <ProjectIndex />
+      </main>
+    );
+  }
+
   return (
     <main>
-      <Header />
+      <Header currentPage="home" />
       <Hero />
       <Projects />
       <About />
@@ -60,17 +106,22 @@ function App() {
   );
 }
 
-function Header() {
+function Header({ currentPage }) {
   return (
     <header className="site-header">
       <nav className="main-nav" aria-label="Primary navigation">
-        <a className="active" href="#home">
+        <a className={currentPage === "home" ? "active" : ""} href="/">
           Home
         </a>
-        <a href="#portfolio">Portfolio</a>
-        <a href="#about">About</a>
+        <a
+          className={currentPage === "projects" ? "active" : ""}
+          href="/projects"
+        >
+          Projects
+        </a>
+        <a href="/#about">About</a>
       </nav>
-      <a className="wordmark" href="#home" aria-label="Truman Folkers home">
+      <a className="wordmark" href="/" aria-label="Truman Folkers home">
         <i>Truman</i>Folkers<span></span>
       </a>
       <div className="social-row" aria-label="Social links">
@@ -162,6 +213,66 @@ function Projects() {
             <p>{project.copy}</p>
           </article>
         ))}
+      </div>
+      <a className="pill-button project-index-link" href="/projects">
+        full project table <ArrowUpRight size={20} />
+      </a>
+    </section>
+  );
+}
+
+function ProjectIndex() {
+  return (
+    <section
+      className="project-index-page"
+      aria-labelledby="project-index-title"
+    >
+      <div className="project-index-hero">
+        <p className="kicker">My Builds</p>
+        <h1 id="project-index-title">Project Portfolio</h1>
+        <p>
+          My personal & business projects. I'll be adding to this over time, so
+          be sure to check back for updates!
+        </p>
+      </div>
+
+      <div className="project-table-wrap">
+        <table className="project-table">
+          <thead>
+            <tr>
+              <th>Project</th>
+              <th>Type</th>
+              <th>Stack</th>
+              <th>Year</th>
+              <th>Status</th>
+              <th>Link</th>
+            </tr>
+          </thead>
+          <tbody>
+            {allProjects.map((project) => (
+              <tr key={project.name}>
+                <td data-label="Project">
+                  <strong>{project.name}</strong>
+                </td>
+                <td data-label="Type">{project.category}</td>
+                <td data-label="Stack">{project.stack}</td>
+                <td data-label="Year">{project.year}</td>
+                <td data-label="Status">
+                  <span className="status-pill">{project.status}</span>
+                </td>
+                <td data-label="Link">
+                  <a
+                    href={project.link}
+                    target={project.link.startsWith("/") ? "_self" : "_blank"}
+                    rel="noreferrer"
+                  >
+                    open <ArrowUpRight size={18} />
+                  </a>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     </section>
   );
