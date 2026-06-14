@@ -10,7 +10,7 @@ import "./styles.css";
 const projects = [
   {
     title: "CyAI",
-    tag: "#recentbuild",
+    tag: "",
     type: "Full-stack app",
     copy: "An Chrome extension AI agent for ISU student Canvas",
     gradient: "orange",
@@ -19,7 +19,7 @@ const projects = [
   },
   {
     title: "Own Aesthetics",
-    tag: "#shipit",
+    tag: "",
     type: "Developer tool",
     copy: "A polished full-stack medspa website",
     gradient: "green",
@@ -28,7 +28,7 @@ const projects = [
   },
   {
     title: "TrueYou",
-    tag: "#frontend",
+    tag: "",
     type: "Interface system",
     copy: "A mental health mobile app for ISU students using React Native",
     gradient: "blue",
