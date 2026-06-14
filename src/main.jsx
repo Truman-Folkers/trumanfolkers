@@ -3,6 +3,7 @@ import { createRoot } from "react-dom/client";
 import { ArrowUpRight, Code2, Mail, Sparkles } from "lucide-react";
 import portrait from "./assets/ChatGPT Image Jun 7, 2026, 06_28_52 PM (1).PNG";
 import cyai from "./assets/cyai2.png";
+import own from "./assets/Ownaes.png";
 import "./styles.css";
 
 const projects = [
@@ -12,16 +13,15 @@ const projects = [
     type: "Full-stack app",
     copy: "An Chrome extension AI agent for ISU student Canvas",
     gradient: "orange",
-    image: cyai,
     link: "https://chromewebstore.google.com/detail/cyai/ohikkdmdedaijlbkelldeengpckdmakd?hl=en&authuser=0",
   },
   {
-    title: "DeployDesk",
+    title: "Own Aesthetics",
     tag: "#shipit",
     type: "Developer tool",
-    copy: "A polished release tracker that turns commits, checks, and notes into one calm deploy view.",
+    copy: "A polished full-stack medspa website",
     gradient: "green",
-    image: "https://trumanfolkers.com/assets/campuslink.png",
+    link: "https://ownaesthetics.com",
   },
   {
     title: "SignalBoard",
@@ -136,11 +136,11 @@ function Projects() {
       <div className="project-stage">
         {projects.map((project, index) => (
           <article
-            className={"project-card"}
+            className={`project-card ${project.gradient}`}
             style={{
-              backgroundImage: `url(${project.image})`,
               cursor: "pointer",
             }}
+            //backgroundImage: `url(${project.image})`,
             onClick={() => window.open(project.link, "_blank")}
             key={project.title}
           >

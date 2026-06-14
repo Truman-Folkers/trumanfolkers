@@ -257,6 +257,32 @@ h3 {
   text-align: left;
 }
 
+.project-card.orange {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.08),
+      rgba(255, 138, 33, 0.95)
+    ),
+    linear-gradient(135deg, #222, var(--orange));
+}
+
+.project-card.green {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(2, 166, 106, 0.86)),
+    radial-gradient(circle at 70% 18%, #b2ffd5, transparent 28rem);
+}
+
+.project-card.blue {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.86),
+      rgba(106, 183, 255, 0.86)
+    ),
+    radial-gradient(circle at 20% 20%, #1f1f1f, transparent 18rem);
+}
+
 .project-card::before {
   background: linear-gradient(
     180deg,
