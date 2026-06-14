@@ -4,6 +4,7 @@ import { ArrowUpRight, Code2, Mail, Sparkles } from "lucide-react";
 import portrait from "./assets/ChatGPT Image Jun 7, 2026, 06_28_52 PM (1).PNG";
 import cyai from "./assets/cyai2.png";
 import own from "./assets/Ownaes.png";
+import trueyou from "./assets/truyou.png";
 import "./styles.css";
 
 const projects = [
@@ -13,6 +14,7 @@ const projects = [
     type: "Full-stack app",
     copy: "An Chrome extension AI agent for ISU student Canvas",
     gradient: "orange",
+    image: cyai,
     link: "https://chromewebstore.google.com/detail/cyai/ohikkdmdedaijlbkelldeengpckdmakd?hl=en&authuser=0",
   },
   {
@@ -21,15 +23,17 @@ const projects = [
     type: "Developer tool",
     copy: "A polished full-stack medspa website",
     gradient: "green",
+    image: own,
     link: "https://ownaesthetics.com",
   },
   {
-    title: "SignalBoard",
+    title: "TrueYou",
     tag: "#frontend",
     type: "Interface system",
-    copy: "A responsive analytics UI with reusable cards, filters, and data states that feel finished.",
+    copy: "A mental health mobile app for ISU students using React Native",
     gradient: "blue",
-    image: "https://trumanfolkers.com/assets/campuslink.png",
+    image: trueyou,
+    link: "https://youtu.be/3RQQMXqWMxI",
   },
 ];
 
@@ -140,13 +144,19 @@ function Projects() {
             style={{
               cursor: "pointer",
             }}
-            //backgroundImage: `url(${project.image})`,
             onClick={() => window.open(project.link, "_blank")}
             key={project.title}
           >
             <div className="project-top">
               <span>{project.type}</span>
               <Code2 size={24} />
+            </div>
+            <div className="project-shot">
+              <img src={project.image} alt={`${project.title} preview`} />
+            </div>
+            <div className="project-meta">
+              <span>{project.tag}</span>
+              <ArrowUpRight size={24} />
             </div>
             <h3>{project.title}</h3>
             <p>{project.copy}</p>

@@ -242,12 +242,10 @@ h3 {
 }
 
 .project-card {
-  background-color: #fff;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  border: 0;
-  border-radius: 8px;
+  background: var(--paper);
+  border: 2px solid var(--black);
+  border-radius: 26px;
+  box-shadow: 10px 10px 0 var(--black);
   color: var(--black);
   isolation: isolate;
   min-height: 390px;
@@ -255,49 +253,137 @@ h3 {
   padding: 28px;
   position: relative;
   text-align: left;
+  transition:
+    box-shadow 220ms ease,
+    transform 220ms ease;
 }
 
 .project-card.orange {
-  background:
-    linear-gradient(
-      180deg,
-      rgba(255, 255, 255, 0.08),
-      rgba(255, 138, 33, 0.95)
-    ),
-    linear-gradient(135deg, #222, var(--orange));
+  --card-accent: var(--orange);
+  --card-soft: #fff0df;
 }
 
 .project-card.green {
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(2, 166, 106, 0.86)),
-    radial-gradient(circle at 70% 18%, #b2ffd5, transparent 28rem);
+  --card-accent: var(--green);
+  --card-soft: #dffff0;
 }
 
 .project-card.blue {
-  background:
-    linear-gradient(
-      180deg,
-      rgba(255, 255, 255, 0.86),
-      rgba(106, 183, 255, 0.86)
-    ),
-    radial-gradient(circle at 20% 20%, #1f1f1f, transparent 18rem);
+  --card-accent: var(--blue);
+  --card-soft: #e9f6ff;
 }
 
 .project-card::before {
-  background: linear-gradient(
-    180deg,
-    rgba(244, 245, 242, 0.22) 0%,
-    rgba(244, 245, 242, 0.26) 42%,
-    rgba(244, 245, 242, 0.42) 100%
-  );
+  background:
+    radial-gradient(circle, rgba(5, 5, 5, 0.18) 1.5px, transparent 2px),
+    var(--card-soft);
+  background-size: 18px 18px;
   content: "";
-  inset: 0;
-  pointer-events: none;
+  height: 180px;
   position: absolute;
+  right: -52px;
+  top: -58px;
+  transform: rotate(12deg);
+  width: 220px;
   z-index: -1;
 }
 
+.project-card::after {
+  border: 3px solid var(--card-accent);
+  border-radius: 50%;
+  bottom: 118px;
+  content: "";
+  height: 78px;
+  position: absolute;
+  right: -36px;
+  transform: rotate(-18deg);
+  width: 190px;
+  z-index: -1;
+}
+
+.project-card:hover {
+  box-shadow: 4px 4px 0 var(--black);
+}
+
+.project-card:nth-child(1):hover {
+  transform: translateY(88px) rotate(-1deg);
+}
+
+.project-card:nth-child(2):hover {
+  transform: translateY(-6px) rotate(1deg);
+}
+
+.project-card:nth-child(3):hover {
+  transform: translateY(88px) rotate(1deg);
+}
+
+.project-shot {
+  align-items: center;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0.28)),
+    var(--card-soft);
+  border: 2px solid var(--black);
+  border-radius: 18px;
+  display: flex;
+  justify-content: center;
+  margin: 24px 0 20px;
+  min-height: 190px;
+  overflow: hidden;
+  padding: 12px;
+  position: relative;
+}
+
+.project-shot::before {
+  background: var(--card-accent);
+  border: 2px solid var(--black);
+  border-radius: 999px;
+  box-shadow:
+    18px 0 0 var(--yellow),
+    36px 0 0 var(--green);
+  content: "";
+  height: 10px;
+  left: 15px;
+  pointer-events: none;
+  position: absolute;
+  top: 13px;
+  width: 10px;
+  z-index: 2;
+}
+
+.project-shot img {
+  display: block;
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+  transform: rotate(-1deg);
+  transition: transform 220ms ease;
+}
+
+.project-card:hover .project-shot img {
+  transform: rotate(0deg) scale(1.03);
+}
+
+.project-meta {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.project-meta span {
+  color: var(--card-accent);
+  font-size: clamp(1rem, 1.6vw, 1.35rem);
+  font-weight: 950;
+  letter-spacing: -0.04em;
+  transform: rotate(-4deg);
+}
+
 .project-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.project-card > svg {
   position: relative;
   z-index: 1;
 }
@@ -310,45 +396,24 @@ h3 {
   min-height: 560px;
 }
 
+.project-card:nth-child(2) .project-shot {
+  min-height: 310px;
+}
+
 .project-card:nth-child(3) {
   transform: translateY(82px) rotate(2deg);
 }
 
-.project-card.orange {
-  background:
-    linear-gradient(
-      180deg,
-      rgba(255, 255, 255, 0.08),
-      rgba(255, 138, 33, 0.95)
-    ),
-    linear-gradient(135deg, #222, var(--orange));
-}
-
-.project-card.green {
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(2, 166, 106, 0.86)),
-    radial-gradient(circle at 70% 18%, #b2ffd5, transparent 28rem);
-}
-
-.project-card.blue {
-  background:
-    linear-gradient(
-      180deg,
-      rgba(255, 255, 255, 0.86),
-      rgba(106, 183, 255, 0.86)
-    ),
-    radial-gradient(circle at 20% 20%, #1f1f1f, transparent 18rem);
-}
-
 .project-top {
   justify-content: space-between;
-  margin-bottom: clamp(100px, 16vw, 250px);
+  margin-bottom: 0;
 }
 
 .project-top span {
   background: var(--paper);
   border: 2px solid var(--black);
   border-radius: 999px;
+  box-shadow: 3px 3px 0 var(--card-accent);
   font-weight: 950;
   padding: 8px 14px;
 }
@@ -360,32 +425,10 @@ h3 {
   margin-bottom: 0;
 }
 
-.sticker {
-  color: var(--black);
-  font-size: clamp(1.15rem, 2.2vw, 2rem);
-  font-weight: 950;
-  letter-spacing: -0.06em;
-  position: absolute;
-  white-space: nowrap;
-  z-index: 3;
-}
-
-.sticker-1 {
-  left: -70px;
-  top: 43%;
-  transform: rotate(-19deg);
-}
-
-.sticker-2 {
-  right: -84px;
-  top: 58%;
-  transform: rotate(20deg);
-}
-
-.sticker-3 {
-  left: -58px;
-  top: 48%;
-  transform: rotate(-17deg);
+.project-card h3 {
+  background: linear-gradient(transparent 58%, var(--card-accent) 58%);
+  display: inline;
+  line-height: 0.96;
 }
 
 .about {
