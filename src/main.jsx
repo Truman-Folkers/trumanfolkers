@@ -2,7 +2,7 @@ import React from "react";
 import { createRoot } from "react-dom/client";
 import { ArrowUpRight, Code2, Mail, Sparkles } from "lucide-react";
 import portrait from "./assets/ChatGPT Image Jun 7, 2026, 06_28_52 PM (1).PNG";
-import cyai from "./assets/cyai.png";
+import cyai from "./assets/cyai2.png";
 import "./styles.css";
 
 const projects = [
@@ -135,20 +135,22 @@ function Projects() {
       <h2 id="projects-title">Recent Projects</h2>
       <div className="project-stage">
         {projects.map((project, index) => (
-          <a href={project.link} target="_blank" rel="noreferrer" key={index}>
-            <article
-              className={"project-card"}
-              style={{ backgroundImage: `url(${project.image})` }}
-              key={project.title}
-            >
-              <div className="project-top">
-                <span>{project.type}</span>
-                <Code2 size={24} />
-              </div>
-              <h3>{project.title}</h3>
-              <p>{project.copy}</p>
-            </article>
-          </a>
+          <article
+            className={"project-card"}
+            style={{
+              backgroundImage: `url(${project.image})`,
+              cursor: "pointer",
+            }}
+            onClick={() => window.open(project.link, "_blank")}
+            key={project.title}
+          >
+            <div className="project-top">
+              <span>{project.type}</span>
+              <Code2 size={24} />
+            </div>
+            <h3>{project.title}</h3>
+            <p>{project.copy}</p>
+          </article>
         ))}
       </div>
     </section>

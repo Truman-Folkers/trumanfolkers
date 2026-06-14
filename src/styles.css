@@ -260,9 +260,9 @@ h3 {
 .project-card::before {
   background: linear-gradient(
     180deg,
-    rgba(244, 245, 242, 0.84) 0%,
-    rgba(244, 245, 242, 0.46) 42%,
-    rgba(244, 245, 242, 0.9) 100%
+    rgba(244, 245, 242, 0.22) 0%,
+    rgba(244, 245, 242, 0.26) 42%,
+    rgba(244, 245, 242, 0.42) 100%
   );
   content: "";
   inset: 0;
