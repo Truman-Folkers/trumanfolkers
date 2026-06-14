@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import { createRoot } from "react-dom/client";
 import { ArrowUpRight, Code2, Mail, Sparkles } from "lucide-react";
 import portrait from "./assets/ChatGPT Image Jun 7, 2026, 06_28_52 PM (1).PNG";
@@ -84,12 +85,12 @@ const skills = [
 ];
 
 function App() {
-  const isProjectsPage = window.location.pathname === "/projects";
+  const [isProjectsPage, setIsProjectsPage] = useState(false);
 
   if (isProjectsPage) {
     return (
       <main>
-        <Header currentPage="projects" />
+        <Header currentPage="projects" setIsProjectsPage={setIsProjectsPage} />
         <ProjectIndex />
       </main>
     );
@@ -97,16 +98,16 @@ function App() {
 
   return (
     <main>
-      <Header currentPage="home" />
+      <Header currentPage="home" setIsProjectsPage={setIsProjectsPage} />
       <Hero />
-      <Projects />
+      <Projects setIsProjectsPage={setIsProjectsPage} />
       <About />
       <Contact />
     </main>
   );
 }
 
-function Header({ currentPage }) {
+function Header({ currentPage, setIsProjectsPage }) {
   return (
     <header className="site-header">
       <nav className="main-nav" aria-label="Primary navigation">
@@ -115,7 +116,10 @@ function Header({ currentPage }) {
         </a>
         <a
           className={currentPage === "projects" ? "active" : ""}
-          href="/projects"
+          onClick={() => {
+            setIsProjectsPage(true);
+          }}
+          style={{ cursor: "pointer" }}
         >
           Projects
         </a>
@@ -180,7 +184,7 @@ function Hero() {
   );
 }
 
-function Projects() {
+function Projects({ setIsProjectsPage }) {
   return (
     <section
       className="projects"
@@ -214,7 +218,13 @@ function Projects() {
           </article>
         ))}
       </div>
-      <a className="pill-button project-index-link" href="/projects">
+      <a
+        className="pill-button project-index-link"
+        onClick={() => {
+          setIsProjectsPage(true);
+        }}
+        style={{ cursor: "pointer" }}
+      >
         full project table <ArrowUpRight size={20} />
       </a>
     </section>
