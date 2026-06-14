@@ -231,7 +231,12 @@ h3 {
 }
 
 .project-index-link {
-  margin: clamp(56px, 8vw, 92px) auto 0;
+  margin: clamp(46px, 8vw, 92px) auto 0;
+  display: inline-flex;
+  width: auto;
+  min-width: 0;
+  max-width: 320px;
+  padding: 10px 20px;
 }
 
 .project-stage {
@@ -324,7 +329,11 @@ h3 {
 .project-shot {
   align-items: center;
   background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0.28)),
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.72),
+      rgba(255, 255, 255, 0.28)
+    ),
     var(--card-soft);
   border: 2px solid var(--black);
   border-radius: 18px;
@@ -436,7 +445,8 @@ h3 {
 }
 
 .project-index-page {
-  padding: clamp(64px, 9vw, 118px) clamp(22px, 6vw, 88px) clamp(90px, 12vw, 170px);
+  padding: clamp(64px, 9vw, 118px) clamp(22px, 6vw, 88px)
+    clamp(90px, 12vw, 170px);
 }
 
 .project-index-hero {
@@ -458,8 +468,7 @@ h3 {
 
 .project-table-wrap {
   background:
-    radial-gradient(circle, rgba(5, 5, 5, 0.12) 1.4px, transparent 2px),
-    #fff;
+    radial-gradient(circle, rgba(5, 5, 5, 0.12) 1.4px, transparent 2px), #fff;
   background-size: 22px 22px;
   border: 2px solid var(--black);
   border-radius: 28px;
@@ -534,6 +543,7 @@ h3 {
 }
 
 .about {
+  margin-top: -150px;
   align-items: start;
   display: grid;
   gap: clamp(36px, 7vw, 92px);
