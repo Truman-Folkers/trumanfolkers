@@ -444,6 +444,147 @@ h3 {
   line-height: 0.96;
 }
 
+.skill-radar {
+  align-items: center;
+  display: grid;
+  gap: clamp(34px, 7vw, 92px);
+  grid-template-columns: minmax(0, 0.86fr) minmax(340px, 520px);
+  padding: clamp(72px, 10vw, 132px) clamp(22px, 6vw, 88px)
+    clamp(96px, 13vw, 176px);
+  position: relative;
+}
+
+.skill-radar::before {
+  background:
+    linear-gradient(115deg, rgba(2, 166, 106, 0.1), transparent 44%),
+    radial-gradient(circle, rgba(255, 138, 33, 0.18) 0 22%, transparent 23%);
+  border: 2px solid rgba(5, 5, 5, 0.08);
+  border-radius: 999px;
+  content: "";
+  height: clamp(210px, 28vw, 390px);
+  left: clamp(-120px, -7vw, -44px);
+  position: absolute;
+  top: 18%;
+  transform: rotate(-12deg);
+  width: clamp(210px, 28vw, 390px);
+  z-index: -1;
+}
+
+.skill-radar-copy h2 {
+  color: var(--black);
+  font-size: clamp(3rem, 6vw, 7.2rem);
+  line-height: 0.9;
+  margin: 0;
+  max-width: 760px;
+}
+
+.skill-radar-copy p:not(.section-label) {
+  color: var(--ink);
+  font-size: clamp(1.08rem, 1.8vw, 1.42rem);
+  font-weight: 750;
+  line-height: 1.45;
+  max-width: 620px;
+}
+
+.radar-card {
+  background:
+    radial-gradient(circle, rgba(5, 5, 5, 0.12) 1.4px, transparent 2px),
+    #ffffff;
+  background-size: 22px 22px;
+  border: 2px solid var(--black);
+  border-radius: 30px;
+  box-shadow: 12px 12px 0 var(--black);
+  overflow: hidden;
+  padding: clamp(18px, 3vw, 34px);
+  position: relative;
+}
+
+.radar-card::before {
+  background: var(--yellow);
+  border: 2px solid var(--black);
+  border-radius: 999px;
+  box-shadow:
+    18px 0 0 var(--orange),
+    36px 0 0 var(--green);
+  content: "";
+  height: 10px;
+  left: 20px;
+  position: absolute;
+  top: 18px;
+  width: 10px;
+}
+
+.radar-chart {
+  display: block;
+  margin: 12px auto 0;
+  max-width: 520px;
+  width: 100%;
+}
+
+.radar-grid {
+  fill: rgba(244, 245, 242, 0.38);
+  stroke: rgba(5, 5, 5, 0.22);
+  stroke-width: 1.6;
+}
+
+.radar-axis {
+  stroke: rgba(5, 5, 5, 0.2);
+  stroke-width: 1.4;
+}
+
+.radar-fill {
+  fill: rgba(2, 166, 106, 0.26);
+}
+
+.radar-stroke {
+  fill: none;
+  stroke: var(--green);
+  stroke-linejoin: round;
+  stroke-width: 4;
+}
+
+.radar-dot {
+  fill: var(--paper);
+  stroke: var(--black);
+  stroke-width: 2;
+}
+
+.radar-label {
+  fill: var(--black);
+  font-size: 15px;
+  font-weight: 950;
+  letter-spacing: 0;
+}
+
+.radar-number {
+  fill: var(--green-dark);
+  font-size: 12px;
+  font-weight: 950;
+}
+
+.radar-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 18px;
+}
+
+.radar-legend span {
+  background: var(--paper);
+  border: 2px solid var(--black);
+  border-radius: 999px;
+  box-shadow: 3px 3px 0 var(--green);
+  color: var(--black);
+  font-size: 0.9rem;
+  font-weight: 950;
+  padding: 8px 12px;
+}
+
+.skill-radar + .about {
+  margin-top: 0;
+}
+
 .project-index-page {
   padding: clamp(64px, 9vw, 118px) clamp(22px, 6vw, 88px)
     clamp(90px, 12vw, 170px);
@@ -634,6 +775,14 @@ h3 {
     grid-template-columns: 1fr;
   }
 
+  .skill-radar {
+    grid-template-columns: 1fr;
+  }
+
+  .radar-card {
+    max-width: 560px;
+  }
+
   .portrait-wrap {
     max-width: 560px;
   }
@@ -682,6 +831,7 @@ h3 {
 
   .hero,
   .projects,
+  .skill-radar,
   .about,
   .contact {
     padding-left: 18px;
@@ -730,6 +880,28 @@ h3 {
 
   .project-card {
     padding: 22px;
+  }
+
+  .skill-radar-copy h2 {
+    font-size: clamp(2.85rem, 13vw, 4.2rem);
+  }
+
+  .radar-card {
+    border-radius: 24px;
+    box-shadow: 7px 7px 0 var(--black);
+    padding: 14px;
+  }
+
+  .radar-chart {
+    margin-top: 18px;
+  }
+
+  .radar-label {
+    font-size: 12px;
+  }
+
+  .radar-legend {
+    justify-content: flex-start;
   }
 
   .project-index-page {
