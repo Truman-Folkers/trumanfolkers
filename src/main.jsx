@@ -331,10 +331,11 @@ function About() {
 
   return (
     <section className="about" id="about" aria-labelledby="about-title">
-      <div>
+      <div className="about-head">
         <p className="section-label">the message behind the build</p>
         <h2 id="about-title">Coding for the Glory of Christ </h2>
       </div>
+
       <div className="about-copy">
         <p>
           Hi! I’m Truman Folkers, a software engineer from Des Moines, Iowa,
@@ -349,6 +350,9 @@ function About() {
             <span key={skill}>{skill}</span>
           ))}
         </div>
+      </div>
+
+      <div className="about-radar">
         <div className="radar-card">
           <svg
             className="radar-chart"

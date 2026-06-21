@@ -488,15 +488,19 @@ h3 {
 
 .radar-card {
   background:
-    radial-gradient(circle, rgba(5, 5, 5, 0.12) 1.4px, transparent 2px),
-    #ffffff;
+    radial-gradient(circle, rgba(5, 5, 5, 0.12) 1.4px, transparent 2px), #ffffff;
   background-size: 22px 22px;
   border: 2px solid var(--black);
   border-radius: 30px;
   box-shadow: 12px 12px 0 var(--black);
   overflow: hidden;
-  padding: clamp(18px, 3vw, 34px);
+  padding: clamp(12px, 2.5vw, 24px);
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 480px;
+  margin: 0 auto;
 }
 
 .radar-card::before {
@@ -516,8 +520,8 @@ h3 {
 
 .radar-chart {
   display: block;
-  margin: 12px auto 0;
-  max-width: 520px;
+  margin: 8px auto 0;
+  max-width: 420px;
   width: 100%;
 }
 
@@ -688,7 +692,10 @@ h3 {
   align-items: start;
   display: grid;
   gap: clamp(36px, 7vw, 92px);
-  grid-template-columns: minmax(0, 0.95fr) minmax(320px, 0.82fr);
+  grid-template-columns: minmax(220px, 0.9fr) minmax(0, 1fr) minmax(
+      300px,
+      0.86fr
+    );
   padding: clamp(86px, 12vw, 160px) clamp(22px, 6vw, 88px);
 }
 
