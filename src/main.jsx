@@ -85,14 +85,14 @@ const skills = [
 ];
 
 const radarSkills = [
-  { label: "React", value: 9.5 },
-  { label: "JavaScript", value: 9.2 },
-  { label: "TypeScript", value: 8.6 },
-  { label: "Node.js", value: 8.4 },
-  { label: "Python", value: 8.0 },
-  { label: "Java", value: 7.6 },
-  { label: "SQL", value: 7.7 },
-  { label: "AWS", value: 7.2 },
+  { label: "C", value: 6.6 },
+  { label: "JavaScript", value: 8.2 },
+  { label: "TypeScript", value: 8.5 },
+  { label: "Java", value: 8.4 },
+  { label: "Python", value: 6.0 },
+  { label: "C#", value: 3.6 },
+  { label: "SQL", value: 5.3 },
+  { label: "HTML/CSS", value: 9.2 },
 ];
 
 const maxSkillScore = 10;
