@@ -14,15 +14,15 @@ const supabase = createClient(
   process.env.SUPABASE_KEY,
 );
 
-//get from 'Statuses' table
-app.get("/api/Statuses", async (req, res) => {
+//get from 'statuses' table
+app.get("/api/statuses", async (req, res) => {
   const { data, error } = await supabase.from("Statuses").select("*");
   if (error) return res.status(400).json({ error: error.message });
   res.json(data);
 });
 
-//insert to 'Statuses' table
-app.post("/api/Statuses", async (req, res) => {
+//insert to 'statuses' table
+app.post("/api/statuses", async (req, res) => {
   const { id, status } = req.body;
   const { data, error } = await supabase
     .from("Statuses")
@@ -34,7 +34,7 @@ app.post("/api/Statuses", async (req, res) => {
 });
 
 //put to 'statuses' table
-app.put("/api/Statuses", async (req, res) => {
+app.put("/api/statuses", async (req, res) => {
   const { id, status } = req.body;
   const { data, error } = await supabase
     .from("Statuses")
