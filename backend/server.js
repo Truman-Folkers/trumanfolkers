@@ -21,7 +21,7 @@ app.get("/api/statuses", async (req, res) => {
   res.json(data);
 });
 
-//insert to 'statuses' table
+//post to 'statuses' table
 app.post("/api/statuses", async (req, res) => {
   const { id, status } = req.body;
   const { data, error } = await supabase

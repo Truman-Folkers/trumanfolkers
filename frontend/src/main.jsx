@@ -7,6 +7,7 @@ import cyai from "./assets/cyai2.png";
 import own from "./assets/Ownaes.png";
 import trueyou from "./assets/truyou.png";
 import "./styles.css";
+import { fetchStatuses } from "./api/statuses";
 
 const projects = [
   {
@@ -99,6 +100,7 @@ const maxSkillScore = 10;
 
 function App() {
   const [isProjectsPage, setIsProjectsPage] = useState(false);
+  const statuses = await fetchStatuses();
 
   if (isProjectsPage) {
     return (
