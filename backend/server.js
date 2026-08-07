@@ -1,0 +1,48 @@
+import express from "express";
+import nodemon from "nodemon";
+import "dotenv/config";
+import { createClient } from "@supabase/supabase-js/dist/index.cjs";
+
+//setting up app
+const app = express();
+app.use(express.json());
+const PORT = 8080;
+
+//setting up supabase client
+const supabase = createClient(
+  process.env.SUPABASE_URL,
+  process.env.SUPABASE_KEY,
+);
+
+//get from 'statuses' table
+app.get("/api/statuses", async (req, res) => {
+  const { data, error } = await supabase.from("statuses").select("*");
+  if (error) return res.status(400).json({ error: error.message });
+  res.json(data);
+});
+
+//insert to 'statuses' table
+app.post("/api/statuses", async (req, res) => {
+  const { id, status } = req.body;
+  const { data, error } = await supabase
+    .from("statuses")
+    .insert([{ id, status }])
+    .select();
+
+  if (error) return res.status(400).json({ error: error.message });
+  res.json(data);
+});
+
+//put to 'statuses' table
+app.put("/api/statuses", async (req, res) => {
+  const { id, status } = req.body;
+  const { data, error } = await supabase
+    .from("statuses")
+    .update([{ id, status }])
+    .select();
+
+  if (error) return res.status(400).json({ error: error.message });
+  res.json(data);
+});
+
+app.listen(PORT, () => console.log(`Backend running on port ${PORT}`));
