@@ -1,7 +1,7 @@
 import express from "express";
 import nodemon from "nodemon";
 import "dotenv/config";
-import { createClient } from "@supabase/supabase-js/dist/index.cjs";
+import { createClient } from "@supabase/supabase-js";
 
 //setting up app
 const app = express();
