@@ -355,11 +355,15 @@ function StatusPage({ setIsStatusPage }) {
   }, []);
   return (
     <>
-      {statuses.map((status) => (
-        <section className="statuses" key={status.id}>
-          <h1>{status.name}</h1>
-        </section>
-      ))}
+      <section className="statuses">
+        <div className="status-grid">
+          {statuses.map((status) => (
+            <div className="status" key={status.id}>
+              {status.name}
+            </div>
+          ))}
+        </div>
+      </section>
     </>
   );
 }
