@@ -1,11 +1,12 @@
-import express from "express";
 import nodemon from "nodemon";
 import "dotenv/config";
 import { createClient } from "@supabase/supabase-js";
+import express from "express";
+import cors from "cors";
 
 //setting up app
 const app = express();
-app.use(express.json());
+app.use(cors());
 const PORT = 8080;
 
 //setting up supabase client
