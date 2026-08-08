@@ -359,7 +359,8 @@ function StatusPage({ setIsStatusPage }) {
         <div className="status-grid">
           {statuses.map((status) => (
             <div className="status" key={status.id}>
-              {status.name}
+              <span className="status-title">{status.name}</span>
+              <div className="status-tracker">{status.status}</div>
             </div>
           ))}
         </div>
