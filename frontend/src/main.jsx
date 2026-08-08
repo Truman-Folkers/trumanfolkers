@@ -107,12 +107,13 @@ function App() {
       console.log(statuses);
       return statuses;
     } catch (e) {
-      console.log(e);
+      console.log(`${e} broooo`);
     }
   }
 
   useEffect(() => {
     loadStatuses();
+    console.log("loaded statuses");
   }, []);
 
   if (isProjectsPage) {
