@@ -117,8 +117,12 @@ function App() {
   if (isProjectsPage) {
     return (
       <main>
-        <Header currentPage="projects" setIsProjectsPage={setIsProjectsPage} />
-        <ProjectIndex />
+        <Header
+          currentPage="projects"
+          setIsProjectsPage={setIsProjectsPage}
+          setIsStatusPage={setIsStatusPage}
+        />
+        <ProjectIndex setIsProjectsPage={setIsProjectsPage} />
       </main>
     );
   }
@@ -126,8 +130,12 @@ function App() {
   if (isStatusPage) {
     return (
       <main>
-        <Header currentPage="status" setIsStatusPage={setIsStatusPage} />
-        <StatusPage />
+        <Header
+          currentPage="status"
+          setIsProjectsPage={setIsProjectsPage}
+          setIsStatusPage={setIsStatusPage}
+        />
+        <StatusPage setIsStatusPage={setIsStatusPage} />
       </main>
     );
   }
@@ -159,6 +167,7 @@ function Header({ currentPage, setIsProjectsPage, setIsStatusPage }) {
           className={currentPage === "projects" ? "active" : ""}
           onClick={() => {
             setIsProjectsPage(true);
+            setIsStatusPage(false);
           }}
           style={{ cursor: "pointer" }}
         >
@@ -168,6 +177,7 @@ function Header({ currentPage, setIsProjectsPage, setIsStatusPage }) {
           className={currentPage === "status" ? "active" : ""}
           onClick={() => {
             setIsStatusPage(true);
+            setIsProjectsPage(false);
           }}
           style={{ cursor: "pointer" }}
         >
