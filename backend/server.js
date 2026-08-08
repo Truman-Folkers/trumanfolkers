@@ -7,6 +7,7 @@ import cors from "cors";
 //setting up app
 const app = express();
 app.use(cors());
+app.use(express.json());
 const PORT = 8080;
 
 //setting up supabase client
@@ -24,10 +25,10 @@ app.get("/api/statuses", async (req, res) => {
 
 //post to 'statuses' table
 app.post("/api/statuses", async (req, res) => {
-  const { id, status } = req.body;
+  const { name, status } = req.body;
   const { data, error } = await supabase
     .from("Statuses")
-    .insert([{ id, status }])
+    .insert([{ name, status }])
     .select();
 
   if (error) return res.status(400).json({ error: error.message });
@@ -39,7 +40,8 @@ app.put("/api/statuses", async (req, res) => {
   const { id, status } = req.body;
   const { data, error } = await supabase
     .from("Statuses")
-    .update([{ id, status }])
+    .update([{ status }])
+    .eq("id", id)
     .select();
 
   if (error) return res.status(400).json({ error: error.message });

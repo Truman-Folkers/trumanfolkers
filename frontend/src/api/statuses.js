@@ -11,11 +11,11 @@ export async function fetchStatuses() {
 }
 
 // Create a new status (POST)
-export async function createStatus(status) {
+export async function createStatus(status, name) {
   const response = await fetch(`${VITE_API_URL}${BASE_URL}/statuses`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ status: status }),
+    body: JSON.stringify({ name: name, status: status }),
   });
   if (!response.ok) throw new Error("Failed to create status");
   return response.json();

@@ -7,7 +7,7 @@ import cyai from "./assets/cyai2.png";
 import own from "./assets/Ownaes.png";
 import trueyou from "./assets/truyou.png";
 import "./styles.css";
-import { fetchStatuses } from "./api/statuses";
+import { createStatus, fetchStatuses, updateStatus } from "./api/statuses";
 
 const projects = [
   {
@@ -101,19 +101,16 @@ const maxSkillScore = 10;
 function App() {
   const [isProjectsPage, setIsProjectsPage] = useState(false);
 
-  async function loadStatuses() {
-    try {
-      const statuses = await fetchStatuses();
-      console.log(statuses);
-      return statuses;
-    } catch (e) {
-      console.log(`${e} broooo`);
-    }
-  }
-
   useEffect(() => {
-    loadStatuses();
-    console.log("loaded statuses");
+    // const statuses = fetchStatuses();
+    // console.log(statuses);
+    // console.log("loaded statuses");
+    // const status = createStatus(1, "Bible Reading");
+    // console.log(status);
+    // console.log("instered statuses");
+    // const st = updateStatus(2, 1);
+    // console.log(st);
+    // console.log("updated statuses");
   }, []);
 
   if (isProjectsPage) {
