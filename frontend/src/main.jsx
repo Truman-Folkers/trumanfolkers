@@ -100,6 +100,7 @@ const maxSkillScore = 10;
 
 function App() {
   const [isProjectsPage, setIsProjectsPage] = useState(false);
+  const [isStatusPage, setIsStatusPage] = useState(false);
 
   useEffect(() => {
     // const statuses = fetchStatuses();
@@ -122,18 +123,32 @@ function App() {
     );
   }
 
+  if (isStatusPage) {
+    return (
+      <main>
+        <Header currentPage="status" setIsStatusPage={setIsStatusPage} />
+        <StatusPage />
+      </main>
+    );
+  }
+
   return (
     <main>
-      <Header currentPage="home" setIsProjectsPage={setIsProjectsPage} />
+      <Header
+        currentPage="home"
+        setIsProjectsPage={setIsProjectsPage}
+        setIsStatusPage={setIsStatusPage}
+      />
       <Hero />
       <Projects setIsProjectsPage={setIsProjectsPage} />
+      <StatusPage setIsStatusPage={setIsStatusPage} />
       <About />
       <Contact />
     </main>
   );
 }
 
-function Header({ currentPage, setIsProjectsPage }) {
+function Header({ currentPage, setIsProjectsPage, setIsStatusPage }) {
   return (
     <header className="site-header">
       <nav className="main-nav" aria-label="Primary navigation">
@@ -149,7 +164,15 @@ function Header({ currentPage, setIsProjectsPage }) {
         >
           Projects
         </a>
-        <a href="/#about">About</a>
+        <a
+          className={currentPage === "status" ? "active" : ""}
+          onClick={() => {
+            setIsStatusPage(true);
+          }}
+          style={{ cursor: "pointer" }}
+        >
+          Status
+        </a>
       </nav>
       <a className="wordmark" href="/" aria-label="Truman Folkers home">
         <i>Truman</i>Folkers<span></span>
@@ -311,6 +334,23 @@ function ProjectIndex() {
         </table>
       </div>
     </section>
+  );
+}
+
+function StatusPage({ setIsStatusPage }) {
+  const [statuses, setStatuses] = useState([]);
+
+  useEffect(() => {
+    fetchStatuses().then(setStatuses);
+  }, []);
+  return (
+    <>
+      {statuses.map((status) => (
+        <section className="statuses" key={status.id}>
+          <h1>{status.name}</h1>
+        </section>
+      ))}
+    </>
   );
 }
 
