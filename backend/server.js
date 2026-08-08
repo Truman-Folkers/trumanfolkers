@@ -6,7 +6,7 @@ import cors from "cors";
 
 //setting up app
 const app = express();
-app.use(cors());
+app.use(cors()); //{ origin: "https://trumanfolkers.vercel.app" })
 app.use(express.json());
 const PORT = 8080;
 
