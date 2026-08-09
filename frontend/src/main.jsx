@@ -8,6 +8,7 @@ import own from "./assets/Ownaes.png";
 import trueyou from "./assets/truyou.png";
 import "./styles.css";
 import { createStatus, fetchStatuses, updateStatus } from "./api/statuses";
+import { format, subDays, startOfToday } from "date-fns";
 
 const projects = [
   {
@@ -353,19 +354,62 @@ function StatusPage({ setIsStatusPage }) {
   useEffect(() => {
     fetchStatuses().then(setStatuses);
   }, []);
+
+  //logic for last 60 days map
+  const days = Array.from({ length: 60 }, (_, i) =>
+    format(subDays(startOfToday, 59 - i), "yyyy-MM-dd"),
+  );
+  const byDate = new Map(statuses.map((s) => [s.created_at, s.status]));
+  const series = days.map((d) => byDate.get(d) ?? null);
+  const sum = (arr) => arr.reduce((a, b) => a + b, 0);
+  const uptime = series.filter((v) => v === 1).length / days.length;
+
+  //day column jsx code
+  const DayColumn = (status) => {
+    return (
+      <span
+        className={
+          status === 1
+            ? "day-column-1"
+            : status === 2
+              ? "day-column-2"
+              : "day-column-3"
+        }
+      ></span>
+    );
+  };
+
+  const groups = statuses.reduce((acc, status) => {
+    (acc[status.name] ??= []).push(status);
+    return acc;
+  }, {});
+
   return (
-    <>
-      <section className="statuses">
-        <div className="status-grid">
-          {statuses.map((status) => (
-            <div className="status" key={status.id}>
-              <span className="status-title">{status.name}</span>
-              <div className="status-tracker">{status.status}</div>
+    <div className="status-grid">
+      {Object.entries(groups).map(([name, rows]) => {
+        const byDate = new Map(rows.map((r) => [r.created_at, r.status]));
+        const series = days.map((d) => byDate.get(d) ?? null);
+        const uptime = series.filter((v) => v === 1).length / days.length;
+
+        return (
+          <div className="status" key={name}>
+            <span className="status-title">{name}</span>
+            <div className="status-tracker">
+              {series.map((v, i) => (
+                <DayColumn key={i} status={v} />
+              ))}
             </div>
-          ))}
-        </div>
-      </section>
-    </>
+            <div className="uptime-tracker">
+              <span>60 days ago</span>
+              <span className="uptime-tracker-line" />
+              <span>{(uptime * 100).toFixed(0)}% uptime</span>
+              <span className="uptime-tracker-line" />
+              <span>Today</span>
+            </div>
+          </div>
+        );
+      })}
+    </div>
   );
 }
 

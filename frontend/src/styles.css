@@ -684,6 +684,49 @@ h3 {
   padding: 18px 22px;
 }
 
+.status-tracker {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+}
+
+.uptime-tracker {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+.uptime-tracker-line {
+  flex: 1;
+  height: 1px;
+  background: var(--black);
+}
+
+.day-column-1,
+.day-column-2,
+.day-column-3 {
+  width: 4px;
+  height: 20px;
+  border-radius: 2px;
+}
+
+.day-column-1 {
+  background: var(--green, #2e8b57);
+}
+
+.day-column-2 {
+  background: var(--yellow, #e8b923);
+}
+
+.day-column-3 {
+  background: var(--red, #d1453b);
+}
+
 .status-pill {
   background: var(--paper);
   border: 2px solid var(--black);
