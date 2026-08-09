@@ -104,18 +104,6 @@ function App() {
   const [isProjectsPage, setIsProjectsPage] = useState(false);
   const [isStatusPage, setIsStatusPage] = useState(false);
 
-  useEffect(() => {
-    // const statuses = fetchStatuses();
-    // console.log(statuses);
-    // console.log("loaded statuses");
-    // const status = createStatus(1, "Bible Reading");
-    // console.log(status);
-    // console.log("instered statuses");
-    // const st = updateStatus(2, 1);
-    // console.log(st);
-    // console.log("updated statuses");
-  }, []);
-
   if (isProjectsPage) {
     return (
       <main>
@@ -154,6 +142,7 @@ function App() {
       <StatusPage setIsStatusPage={setIsStatusPage} />
       <About />
       <Contact />
+      <Tooltip id="status-tooltip" />
     </main>
   );
 }
