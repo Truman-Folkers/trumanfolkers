@@ -9,6 +9,7 @@ import trueyou from "./assets/truyou.png";
 import "./styles.css";
 import { createStatus, fetchStatuses, updateStatus } from "./api/statuses";
 import { format, subDays, startOfToday } from "date-fns";
+import { Tooltip } from "react-tooltip";
 
 const projects = [
   {
@@ -359,10 +360,6 @@ function StatusPage({ setIsStatusPage }) {
   const days = Array.from({ length: 60 }, (_, i) =>
     format(subDays(startOfToday, 59 - i), "yyyy-MM-dd"),
   );
-  const byDate = new Map(statuses.map((s) => [s.created_at, s.status]));
-  const series = days.map((d) => byDate.get(d) ?? null);
-  const sum = (arr) => arr.reduce((a, b) => a + b, 0);
-  const uptime = series.filter((v) => v === 1).length / days.length;
 
   //day column jsx code
   const DayColumn = (status) => {
