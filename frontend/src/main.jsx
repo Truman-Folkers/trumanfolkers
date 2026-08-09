@@ -142,7 +142,6 @@ function App() {
       <StatusPage setIsStatusPage={setIsStatusPage} />
       <About />
       <Contact />
-      <Tooltip id="status-tooltip" />
     </main>
   );
 }
@@ -346,14 +345,17 @@ function StatusPage({ setIsStatusPage }) {
   }, []);
 
   //logic for last 60 days map
-  const days = Array.from({ length: 60 }, (_, i) =>
-    format(subDays(startOfToday, 59 - i), "yyyy-MM-dd"),
+  const days = Array.from({ length: 90 }, (_, i) =>
+    format(subDays(startOfToday, 89 - i), "yyyy-MM-dd"),
   );
 
   //day column jsx code
   const DayColumn = (status) => {
     return (
       <span
+        data-tooltip-id="status-tooltip"
+        data-tooltip-content="Status"
+        data-tooltip-place="top"
         className={
           status === 1
             ? "day-column-1"
@@ -361,7 +363,10 @@ function StatusPage({ setIsStatusPage }) {
               ? "day-column-2"
               : "day-column-3"
         }
-      ></span>
+      >
+        {" "}
+        <Tooltip id="status-tooltip" />
+      </span>
     );
   };
 
@@ -386,7 +391,7 @@ function StatusPage({ setIsStatusPage }) {
               ))}
             </div>
             <div className="uptime-tracker">
-              <span>60 days ago</span>
+              <span>90 days ago</span>
               <span className="uptime-tracker-line" />
               <span>{(uptime * 100).toFixed(0)}% uptime</span>
               <span className="uptime-tracker-line" />
