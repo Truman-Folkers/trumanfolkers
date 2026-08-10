@@ -5,6 +5,7 @@ import { ArrowUpRight, Code2, Mail, Sparkles } from "lucide-react";
 import portrait from "./assets/ChatGPT Image Jun 7, 2026, 06_28_52 PM (1).PNG";
 import cyai from "./assets/cyai2.png";
 import own from "./assets/Ownaes.png";
+import roomba from "./assets/roomba2.jpeg";
 import trueyou from "./assets/truyou.png";
 import "./styles.css";
 import { createStatus, fetchStatuses, updateStatus } from "./api/statuses";
@@ -16,7 +17,7 @@ const projects = [
   {
     title: "CyAI",
     tag: "",
-    type: "Full-stack app",
+    type: "Chrome Extension",
     copy: "An Chrome extension AI agent for ISU student Canvas",
     gradient: "orange",
     image: cyai,
@@ -25,20 +26,20 @@ const projects = [
   {
     title: "Own Aesthetics",
     tag: "",
-    type: "Developer tool",
+    type: "Full-Stack Website",
     copy: "A polished full-stack medspa website",
     gradient: "green",
     image: own,
     link: "https://ownaesthetics.com",
   },
   {
-    title: "TrueYou",
+    title: "Roomba MCU",
     tag: "",
-    type: "Interface system",
-    copy: "A mental health mobile app for ISU students using React Native",
+    type: "Embedded Programming",
+    copy: "Programmed a Roomba from scratch over 16 weeks using an MCU",
     gradient: "blue",
-    image: trueyou,
-    link: "https://youtu.be/3RQQMXqWMxI",
+    image: roomba,
+    link: "https://github.com/Truman-Folkers/288FinalProj",
   },
 ];
 
@@ -61,7 +62,7 @@ const allProjects = [
   },
   {
     name: "TrueYou",
-    category: "Mobile app",
+    category: "Mobile App",
     stack: "React Native, product design",
     year: "2026",
     status: "Demo",
@@ -74,6 +75,14 @@ const allProjects = [
     year: "2026",
     status: "Active",
     link: "/",
+  },
+  {
+    name: "Embedded Roomba Programming",
+    category: "Embedded Programming",
+    stack: "C, MCU, IMU",
+    year: "2026",
+    status: "Finished",
+    link: "https://github.com/Truman-Folkers/288FinalProj",
   },
 ];
 
