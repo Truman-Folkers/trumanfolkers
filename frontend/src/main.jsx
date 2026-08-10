@@ -345,11 +345,12 @@ function StatusPage({ setIsStatusPage }) {
 
   //logic for last 60 days map
   const days = Array.from({ length: 90 }, (_, i) =>
-    format(subDays(startOfToday, 89 - i), "yyyy-MM-dd"),
+    format(subDays(startOfToday(), 89 - i), "yyyy-MM-dd"),
   );
 
   //day column jsx code
-  const DayColumn = (status) => {
+  const DayColumn = ({ status }) => {
+    console.log(status);
     return (
       <span
         data-tooltip-id="status-tooltip"
@@ -384,7 +385,12 @@ function StatusPage({ setIsStatusPage }) {
 
       <div className="status-grid">
         {Object.entries(groups).map(([name, rows]) => {
-          const byDate = new Map(rows.map((r) => [r.created_at, r.status]));
+          const byDate = new Map(
+            rows.map((r) => [
+              format(new Date(r.created_at), "yyyy-MM-dd"),
+              r.status,
+            ]),
+          );
           const series = days.map((d) => byDate.get(d) ?? null);
           const uptime = series.filter((v) => v === 1).length / days.length;
 
