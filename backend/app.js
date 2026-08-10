@@ -4,7 +4,7 @@ import express from "express";
 import cors from "cors";
 
 const app = express();
-app.use(cors()); //{ origin: "https://trumanfolkers.vercel.app" })
+app.use(cors({ origin: "https://trumanfolkers.vercel.app" })); //{ origin: "https://trumanfolkers.vercel.app" })
 app.use(express.json());
 
 const supabase = createClient(
