@@ -1,15 +1,14 @@
 {
+  "name": "trumanfolkers",
+  "private": true,
+  "workspaces": ["frontend", "backend"],
   "scripts": {
-    "dev": "vite --host 127.0.0.1",
-    "build": "vite build",
-    "preview": "vite preview --host 127.0.0.1"
+    "dev": "concurrently -n web,api -c blue,green \"npm:dev:web\" \"npm:dev:api\"",
+    "dev:web": "npm run dev --workspace frontend",
+    "dev:api": "npm run start --workspace backend",
+    "build": "npm run build --workspace frontend"
   },
-  "dependencies": {
-    "@vitejs/plugin-react": "latest",
-    "vite": "latest",
-    "react": "latest",
-    "react-dom": "latest",
-    "lucide-react": "latest"
-  },
-  "devDependencies": {}
+  "devDependencies": {
+    "concurrently": "^10.0.4"
+  }
 }
