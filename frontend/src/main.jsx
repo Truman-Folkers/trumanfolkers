@@ -139,7 +139,6 @@ function App() {
       />
       <Hero />
       <Projects setIsProjectsPage={setIsProjectsPage} />
-      <StatusPage setIsStatusPage={setIsStatusPage} />
       <About />
       <Contact />
     </main>
@@ -376,31 +375,39 @@ function StatusPage({ setIsStatusPage }) {
   }, {});
 
   return (
-    <div className="status-grid">
-      {Object.entries(groups).map(([name, rows]) => {
-        const byDate = new Map(rows.map((r) => [r.created_at, r.status]));
-        const series = days.map((d) => byDate.get(d) ?? null);
-        const uptime = series.filter((v) => v === 1).length / days.length;
+    <section className="status-page" aria-labelledby="status-page-title">
+      <div className="status-hero">
+        <p className="kicker">Daily Tracking</p>
+        <h1 id="status-page-title">Status</h1>
+        <p>Tracking my daily habits and consistency over the last 90 days.</p>
+      </div>
 
-        return (
-          <div className="status" key={name}>
-            <span className="status-title">{name}</span>
-            <div className="status-tracker">
-              {series.map((v, i) => (
-                <DayColumn key={i} status={v} />
-              ))}
+      <div className="status-grid">
+        {Object.entries(groups).map(([name, rows]) => {
+          const byDate = new Map(rows.map((r) => [r.created_at, r.status]));
+          const series = days.map((d) => byDate.get(d) ?? null);
+          const uptime = series.filter((v) => v === 1).length / days.length;
+
+          return (
+            <div className="status" key={name}>
+              <span className="status-title">{name}</span>
+              <div className="status-tracker">
+                {series.map((v, i) => (
+                  <DayColumn key={i} status={v} />
+                ))}
+              </div>
+              <div className="uptime-tracker">
+                <span>90 days ago</span>
+                <span className="uptime-tracker-line" />
+                <span>{(uptime * 100).toFixed(0)}% uptime</span>
+                <span className="uptime-tracker-line" />
+                <span>Today</span>
+              </div>
             </div>
-            <div className="uptime-tracker">
-              <span>90 days ago</span>
-              <span className="uptime-tracker-line" />
-              <span>{(uptime * 100).toFixed(0)}% uptime</span>
-              <span className="uptime-tracker-line" />
-              <span>Today</span>
-            </div>
-          </div>
-        );
-      })}
-    </div>
+          );
+        })}
+      </div>
+    </section>
   );
 }
 
