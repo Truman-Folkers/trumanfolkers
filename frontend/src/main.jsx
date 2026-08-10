@@ -10,6 +10,7 @@ import "./styles.css";
 import { createStatus, fetchStatuses, updateStatus } from "./api/statuses";
 import { format, subDays, startOfToday } from "date-fns";
 import { Tooltip } from "react-tooltip";
+import { CircleCheck, CircleX } from "lucide-react";
 
 const projects = [
   {
@@ -365,14 +366,14 @@ function StatusPage({ setIsStatusPage }) {
         }
       >
         {" "}
-        <Tooltip id="status-tooltip" />
+        {/* <Tooltip id="status-tooltip" /> */}
       </span>
     );
   };
 
-  const groups = statuses.reduce((acc, status) => {
-    (acc[status.name] ??= []).push(status);
-    return acc;
+  const groups = statuses.reduce((accumulator, status) => {
+    (accumulator[status.name] ??= []).push(status);
+    return accumulator;
   }, {});
 
   return (
@@ -396,7 +397,21 @@ function StatusPage({ setIsStatusPage }) {
 
           return (
             <div className="status" key={name}>
-              <span className="status-title">{name}</span>
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                  width: "100%",
+                }}
+              >
+                <span className="status-title">{name}</span>
+                {series.at(-1) === 1 ? (
+                  <CircleCheck size={20} color="var(--green)" />
+                ) : (
+                  <CircleX size={20} color="red" />
+                )}
+              </div>
               <div className="status-tracker">
                 {series.map((v, i) => (
                   <DayColumn key={i} status={v} />
