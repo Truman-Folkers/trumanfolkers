@@ -897,6 +897,10 @@ h3 {
     min-height: auto;
   }
 
+  .status-grid {
+    grid-template-columns: 1fr;
+  }
+
   .project-card,
   .project-card:nth-child(1),
   .project-card:nth-child(2),
@@ -938,7 +942,8 @@ h3 {
   .projects,
   .skill-radar,
   .about,
-  .contact {
+  .contact,
+  .status-page {
     padding-left: 18px;
     padding-right: 18px;
   }
@@ -1083,5 +1088,48 @@ h3 {
     font-weight: 950;
     letter-spacing: 0.08em;
     text-transform: uppercase;
+  }
+
+  .status-hero {
+    max-width: min(330px, calc(100vw - 36px));
+  }
+
+  .status-hero p:not(.kicker) {
+    max-width: min(330px, calc(100vw - 36px));
+  }
+
+  .status-grid {
+    border-radius: 20px;
+    box-shadow: 7px 7px 0 var(--black);
+    margin: 15px 0;
+  }
+
+  .status {
+    padding: 16px 16px;
+  }
+
+  .status-title {
+    font-size: 1.1rem;
+  }
+
+  .status-tracker {
+    gap: 1px;
+  }
+
+  .day-column-1,
+  .day-column-2,
+  .day-column-3 {
+    height: 14px;
+    border-radius: 1px;
+  }
+
+  .uptime-tracker {
+    flex-wrap: wrap;
+    row-gap: 4px;
+    font-size: 0.66rem;
+  }
+
+  .uptime-tracker-line {
+    min-width: 24px;
   }
 }
