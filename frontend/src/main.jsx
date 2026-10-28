@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import { createRoot } from "react-dom/client";
 import { ArrowUpRight, Code2, Mail, Sparkles } from "lucide-react";
-import portrait from "./assets/trurman-computer.JPG";
+import portrait from "./assets/IMG_2062.jpg";
 import cyai from "./assets/cyai2.png";
 import own from "./assets/Ownaes.png";
 import roomba from "./assets/roomba2.jpeg";
